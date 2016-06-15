@@ -50,8 +50,8 @@ class Pylinter(Linter):
                 #Don't run on non-python files.
                 continue
             with cd_ctx(path):
-                short_data = pylint_raw([fname, "--report=n", "-f", "text"])
-                full_data = pylint_raw([fname, "--report=y", "-f", "text"])
+                short_data = pylint_raw([fname, "--reports=n", "-f", "text"])
+                full_data = pylint_raw([fname, "--reports=y", "-f", "text"])
 
             score_regex = re.search(r"Your code has been rated at (-?\d+\.\d+)", full_data)
             if score_regex:
