@@ -68,7 +68,7 @@ def post_to_gerrit(commit, score=0, message='', user='lunatest', gerrit=None):
     subprocess.check_output(["ssh",
                              "-p", str(os.environ.get("GERRIT_PORT", "29418")),
                              "{}@{}".format(user, gerrit),
-                             "gerrit", "review", "--code-review " + score,
+                             "gerrit", "review", "--label", "Sonar-Verified=" + score,
                              "-m", message, commit])
 
 
